@@ -17,7 +17,7 @@ public class GreetingController {
     }
 
 
-    @GetMapping(value = "/name") // returns in JSON http://localhost:8080/greeting/name_greeting
+    @GetMapping(value = "/name") // returns in JSON http://localhost:8080/greeting/name
     public Greet greeting2(){
         return new Greet("Sakusan","afternoon");
     }
@@ -27,6 +27,8 @@ public class GreetingController {
         Greet newGreet = new Greet("Sakusan","afternoon");
         return "Good " + newGreet.getTimeOfDay() + " " + newGreet.getName() + "!";
     }
+
+
 
 
     @GetMapping(value = "/time") //http://localhost:8080/greeting/time?time=afternoon
@@ -39,10 +41,11 @@ public class GreetingController {
         return new Celebration("Merry Christmas!");
     }
 
-
-
-
-
+    //RequestParam with 2 parameters
+    @GetMapping(value = "/two_params") // http://localhost:8080/greeting/two_params?name=Sakusan&timeOfDay=afternoon
+    public Greet greeting3(@RequestParam String name, @RequestParam String timeOfDay){
+        return new Greet(name,timeOfDay);
+    }
 
 
 }
