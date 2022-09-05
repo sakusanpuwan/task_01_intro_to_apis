@@ -8,6 +8,10 @@ public class Celebration {
         this.message = message;
     }
 
+    public Celebration(){
+
+    }
+
     public String getMessage() {
         return message;
     }
